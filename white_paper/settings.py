@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     'cms',
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -71,6 +73,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'white_paper.wsgi.application'
+
+
+
+AUTH_USER_MODEL = 'user.User'
 
 
 # Database
