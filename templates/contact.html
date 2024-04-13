@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Contact Us {% endblock title %} 
+{% block body_content %}
+<style>
+    nav .navbar .nav-links .links li a {
+        color: #212529;
+
+    }
+    .search-btn i {
+        color: #212529;
+    }
+    .logo-div{
+        background-color: #198781;
+    }
+    .menu i {
+        color: #212529;
+    }
+</style>
+<div class="main-content">
+    <div class="contact-box">
+        <div class="contact-content1">
+            <h1 style="width: unset;">Chat with us</h1>
+         
+                <a href="https://wa.me/+60122596412" class="whatsapp" >
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+        </div>
+        <div class="contact-content2">
+            <div class="contact-input-box">
+               
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="contact-input">
+                        <div><label for="your_name" required class="form-label pl-1">Your Name <span>*</span></label></div>
+                        <div><input class="w-100 input-register pl-1"  id="your_name" type="text" name="your_name" placeholder="Enter your name"></div>
+                    </div>
+
+                    <div class="contact-input">
+                        <div><label for="email" required class="form-label pl-1">Your Email <span>*</span></label></div>
+                        <div><input class="w-100 input-register pl-1"  id="email" type="email" name="email" placeholder="Enter your email"></div>
+                    </div>
+
+                    <div class="contact-input">
+                        <div><label for="mobile_number" required class="form-label pl-1">Your mobile number <span>*</span></label></div>
+                        <div><input class="w-100 input-register pl-1"  id="mobile_number" type="text" name="mobile_number" placeholder="Enter your mobile number"></div>
+                    </div>
+
+                    <div class="contact-input">
+                        <div><label for="type_of_enquiry" required class="form-label pl-1">Subject <span>*</span></label></div>
+                        <div><select class="w-100 input-register" id="type_of_enquiry" type="text" name="type_of_enquiry">
+                            <option disabled selected>Select your subject</option>
+                            <option>Real estate</option>
+                            <option>Property Agency</option>
+                            <option>Human Resources</option>
+                            <option>Report an issue</option>
+                            <option>others</option>
+                        </select></div>
+
+                        
+                    </div>
+                    <div class="contact-input">
+                        <div><label for="message" required class="form-label pl-1">Message <span>*</span></label></div>
+                        <div class="message-input"><input class="w-100 input-register pl-1"  id="message" type="text" name="message" placeholder="Type your message"></div>
+                    </div>
+                    <div class="contact-btn">
+                        <input type="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock body_content%}
+
+
+
+
+
+

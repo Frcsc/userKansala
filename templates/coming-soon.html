@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Contact Us {% endblock title %} 
+{% block body_content %}
+<style>
+    nav {
+        background-color: #198781;
+    }
+    nav .navbar .nav-links .links li a {
+        color: #fff;
+
+    }
+    .search-btn i {
+        color: #fff;
+    }
+    .logo-div{
+        background-color: #198781;
+    }
+    .menu i {
+        color: #212529;
+    }
+</style>
+<div class="main-content">
+    <!-- <div style="height: 100vh;">
+        <h1>Coming Soon</h1>
+    </div> -->
+    <div class="homepage-fourth-section" style="height: 100vh;">
+        <div class="double-box">
+            <div class="wow fadeInUp box-two">
+                <img src="{% static 'images/property_b.jpeg' %}" alt="">
+            </div>
+            <div class="wow fadeInUp box-one d-flex justify-content-between flex-column">
+                <h1 class="wow fadeInUp" data-wow-delay="0.3s">COMING SOON</h1>
+                <p class='wow fadeInUp padding-zero'></p>
+                <a class="wow fadeInUp a-custom-buttom mt-5" href="{% url 'homepage' %}" data-wow-delay="0.4s">
+                        <span>Home&nbsp;&nbsp;&nbsp;</span>
+                        <div><img src="{% static 'images/search-arrow.svg' %}"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body_content %}

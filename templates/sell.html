@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Contact Us {% endblock title %} 
+{% block body_content %}
+<style>
+    nav {
+        background-color: #198781;
+    }
+    nav .navbar .nav-links .links li a {
+        color: #fff;
+
+    }
+    .search-btn i {
+        color: #fff;
+    }
+    .logo-div{
+        background-color: #198781;
+    }
+    .menu i {
+        color: #212529;
+    }
+</style>
+<div class="main-content">
+    <!-- <div style="height: 100vh;">
+        <h1>Coming Soon</h1>
+    </div> -->
+    <div class="homepage-fourth-section" style="height: unset;">
+        <div class="double-box">
+            <p>Please fill this form.</p>
+        </div>
+        <div class="double-box" style="width: unset;">
+            <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfZnl0BjRejeY2xCEZaCAtqLy236akz-L1pb3Ej2b-euMDgFQ/viewform?embedded=true" 
+            width="640" height="1200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock body_content %}
