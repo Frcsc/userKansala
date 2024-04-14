@@ -1,6 +1,6 @@
 {% extends 'base.html'%}
 {%load static%}
-{% block title %} Listing Details {% endblock title %} 
+{% block title %} Listing Details {% endblock title %}
 {% load humanize %}
 {% block body_content %}
 <style>
@@ -48,9 +48,9 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 
-    
+
     <div class="homepage-fourth-section div-measure-p">
         <div class="double-box" style="display: unset;">
             <div class="row w-100">
@@ -61,28 +61,36 @@
                     <hr>
                     <P style="font-size: 2.5rem;">Details</P>
                     <div class="row mt-5" style="padding-left: unset; padding-right: unset;">
-                        <div class="col-6 div-measure">
-                            <span style="font-size: 1.5rem;">Property Type: Shop For Rent</span>
+                        <div class="col-6 col-xl-4 div-measure">
+                            <span style="font-size: 1.5rem;">Type: {{current_list.type_of_property|title}}</span>
                         </div>
-                        <div class="col-6 div-measure">
-                            <span style="font-size: 1.5rem;">Floor Size: 6227 sqft</span>
+                        <div class="col-6 col-xl-4 div-measure">
+                            <span style="font-size: 1.5rem;">Floor Size: 6,227 sqft</span>
                         </div>
                     </div>
                     <div class="row mt-5" style="padding-left: unset; padding-right: unset;">
-                        <div class="col-6 div-measure">
-                            <span style="font-size: 1.5rem;">PSF: RM 3.21 psf</span>
+                        <div class="col-6 col-xl-4 div-measure">
+                            <span style="font-size: 1.5rem;">PSF: RM {{ current_list.psf |intcomma }} psf</span>
                         </div>
-                        <div class="col-6 div-measure">
+                        <div class="col-6 col-xl-4 div-measure">
                             <span style="font-size: 1.5rem;">Listing ID: 12334</span>
                         </div>
                     </div>
+                    <div class="row mt-5" style="padding-left: unset; padding-right: unset;">
+                        <div class="col-6 col-xl-4 div-measure">
+                            <span style="font-size: 1.5rem;">Rooms: {{current_list.number_of_bedrooms}}</span>
+                        </div>
+                        <div class="col-6 col-xl-4 div-measure">
+                            <span style="font-size: 1.5rem;">Bathrooms: {{current_list.number_of_bathroom}}</span>
+                        </div>
+                    </div>
                 </div>
-               
+
                 <div class="col-md-6 col-12 mt-5 mb-5" style="display: flex; justify-content: flex-end;">
                     <div class="board-image pop-click d-flex justify-content-center align-items-center">
                         <img class="img-click img-fluid wow fadeInUp" src="{% static 'images/bayati_profile.png' %}" alt="" style="animation-delay: 0.1s;">
                         <h2 class="img-name mt-3 wow fadeInUp" style="animation-delay: 0.2s; color: #212529;">Bayati</h2>
-                        <a href="https://wa.me/+60122596412" class="whatsapp" >
+                        <a href="https://wa.me/+60124596433" class="whatsapp" >
                             <i class="fab fa-whatsapp" style="font-size: 3rem;"></i>
                         </a>
                     </div>
@@ -97,9 +105,9 @@
             </div>
             <div class="mapouter">
                 <div class="gmap_canvas">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.6189303837677!2d101.63417517497022!3d2.9253944970509402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb6dd6b5d54d1%3A0x730e137b046ce8f!2sSolstice%20%40%20Pan&#39;gaea!5e0!3m2!1sen!2smy!4v1712924751202!5m2!1sen!2smy" 
-                        width="100%" height="500" 
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.6189303837677!2d101.63417517497022!3d2.9253944970509402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb6dd6b5d54d1%3A0x730e137b046ce8f!2sSolstice%20%40%20Pan&#39;gaea!5e0!3m2!1sen!2smy!4v1712924751202!5m2!1sen!2smy"
+                        width="100%" height="500"
                         style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                     <a href="https://putlocker-is.org"></a>
@@ -117,6 +125,6 @@
             </div>
         </div>
     </div>
-   
+
 </div>
 {% endblock body_content %}

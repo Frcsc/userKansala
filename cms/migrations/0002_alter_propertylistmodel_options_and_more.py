@@ -17,6 +17,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='propertylistmodel',
             name='show_on_home_page',
-            field=models.CharField(choices=[('SHOW_ON_HOME_PAGE', 'Show_on_home_page'), ('DO_NOT_SHOW_ON_HOME_PAGE', 'Do_not_show_on_home_page')], default='DO_NOT_SHOW_ON_HOME_PAGE', max_length=512),
+            field=models.CharField(
+                choices=[
+                    ('SHOW_ON_HOME_PAGE', 'Show_on_home_page'),
+                    ('DO_NOT_SHOW_ON_HOME_PAGE', 'Do_not_show_on_home_page'),
+                ],
+                default='DO_NOT_SHOW_ON_HOME_PAGE',
+                max_length=512,
+            ),
         ),
     ]

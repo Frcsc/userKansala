@@ -1,5 +1,4 @@
 from django import forms
-
 from django.core.validators import RegexValidator
 
 PHONE_NUMBER_REGEX = r"^(601)[0-46-9][0-9]{7,8}$"
@@ -12,16 +11,12 @@ PHONE_NUMBER_VALIDATOR = RegexValidator(
 class ContactForm(forms.Form):
     your_name = forms.CharField(label="Your name", max_length=100)
     email = forms.EmailField(label="Your email")  # Fixed label here
-    mobile_number = forms.CharField(
-        label="Mobile number", max_length=64
-    )
+    mobile_number = forms.CharField(label="Mobile number", max_length=64)
     type_of_enquiry = forms.CharField(max_length=100)
     message = forms.CharField(max_length=1048)
 
     widgets = {
-        "your_name": forms.TextInput(
-            attrs={"placeholder": "Your Name"}
-        ),
+        "your_name": forms.TextInput(attrs={"placeholder": "Your Name"}),
         "email": forms.EmailInput(
             attrs={"class": "input-register", "placeholder": "youremail@example.com"}
         ),

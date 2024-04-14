@@ -1,9 +1,9 @@
-from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
     PermissionsMixin,
 )
+from django.db import models
 
 
 class UserManager(BaseUserManager):
@@ -19,13 +19,14 @@ class UserManager(BaseUserManager):
         user.save()
         return user
 
-    def create_superuser(self,  email, mobile_number, password=None):
+    def create_superuser(self, email, mobile_number, password=None):
         user = self.create_user(email, mobile_number, password)
         user.is_staff = True
         user.is_superuser = True
         user.save()
         return user
-    
+
+
 class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=128, null=True, blank=True)
     email = models.EmailField(max_length=250, unique=True)

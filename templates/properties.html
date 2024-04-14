@@ -1,89 +1,40 @@
 {% extends 'base.html'%}
 {% load static %}
 {% load humanize %}
-{% block title %} Listings {% endblock title %} 
+{% block title %} Listings {% endblock title %}
 
 {% block body_content %}
 <div class="main-content">
     <div class="main-header page-banners">
         <div class="main-header-content">
-            <h1>Properties For Sale</h1>
+            <h1 class="wow fadeInUp">Properties For Sale</h1>
         </div>
-    </div>    
+    </div>
 
     <div class="homepage-fourth-section">
         <div class="double-box title-head">
-            <h1 class="wow fadeInUp" data-wow-delay="0.3s" >Current Listings</h1>
+            <h1 class="wow fadeInUp" data-wow-delay="0.2s" >Current Listings</h1>
         </div>
         <div class="row affairs-pagination double-box">
+            {% for object in object_list %}
             <div class="col-12 col-md-6 col-xl-3 wow fadeInUp affairs-card">
-                <img src="{%static 'images/4p.jpeg'%}">
+                <img src="{{object.image.url}}">
                 <div class="affairs-content wow fadeInUp" data-wow-delay="0.2s">
-                    <a href="#">Cuberia Condominium</a>
-                    <p>{{ "Bandar Bukit Raja Sales Gallery, Jalan Gamelan 1E, Bandar Bukit Raja, Klang, Selangor"|slice:":48" }}{% if "Bandar Bukit Raja Sales Gallery, Jalan Gamelan 1E, Bandar Bukit Raja, Klang, Selangor"|length > 50 %}...{% endif %}</p>
-                    <p>RM {{ 13245656 |intcomma }}</p>
+                    <a href="{%url 'properties-details' object.pk %}">Cuberia Condominium</a>
+                    <p>{{object.address|slice:48}}...</p>
+                    <p>RM {{ object.price |intcomma }}</p>
                     <div class="bedroom-div wow fadeInUp" data-wow-delay="0.4s">
                         <div class="d-flex" style="align-items: baseline;">
                             <i class="custom-fa fa fa-bed mt-2" aria-hidden="true"></i>
                             <p>&nbsp; 6</p>
                         </div>
-                        <a class="wow fadeInUp a-custom-buttom mt-2" href="#" data-wow-delay="0.4s" style="padding: unset; width: 10rem;">
+                        <a class="wow fadeInUp a-custom-buttom mt-2" href="{%url 'properties-details' object.pk %}" data-wow-delay="0.4s" style="padding: unset; width: 10rem;">
                             <span style="font-size: 1.4rem;">View details</span>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-xl-3 wow fadeInUp affairs-card">
-                <img src="{%static 'images/property_b.jpeg'%}">
-                <div class="wow fadeInUp affairs-content" data-wow-delay="0.2s">
-                    <a href="#">Solstice Condominium</a>
-                    <p>{{ "Bandar Bukit Raja Sales Gallery, Jalan Gamelan 1E, Bandar Bukit Raja, Klang, Selangor"|slice:":48" }}{% if "Bandar Bukit Raja Sales Gallery, Jalan Gamelan 1E, Bandar Bukit Raja, Klang, Selangor"|length > 50 %}...{% endif %}</p>
-                    <p>RM {{ 3210000 |intcomma }}</p>
-                    <div class="bedroom-div wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="d-flex" style="align-items: baseline;">
-                            <i class="custom-fa fa fa-bed mt-2" aria-hidden="true"></i>
-                            <p>&nbsp; 5</p>
-                        </div>
-                        <a class="wow fadeInUp a-custom-buttom mt-2" href="#" data-wow-delay="0.4s" style="padding: unset; width: 10rem;">
-                            <span style="font-size: 1.4rem;">View details</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-xl-3 wow fadeInUp affairs-card">
-                <img src="{%static 'images/property_a.webp'%}">
-                <div class="wow fadeInUp affairs-content" data-wow-delay="0.2s">
-                    <a href="#">Putra Heights</a>
-                    <p>{{ "Bandar Bukit Raja Sales Gallery, Jalan Gamelan 1E, Bandar Bukit Raja, Klang, Selangor"|slice:":48" }}{% if "Bandar Bukit Raja Sales Gallery, Jalan Gamelan 1E, Bandar Bukit Raja, Klang, Selangor"|length > 50 %}...{% endif %}</p>
-                    <p>RM {{ 700000 |intcomma }}</p>
-                    <div class="bedroom-div wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="d-flex" style="align-items: baseline;">
-                            <i class="custom-fa fa fa-bed mt-2" aria-hidden="true"></i>
-                            <p>&nbsp; 3</p>
-                        </div>
-                        <a class="wow fadeInUp a-custom-buttom mt-2" href="#" data-wow-delay="0.4s" style="padding: unset; width: 10rem;">
-                            <span style="font-size: 1.4rem;">View details</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-xl-3 wow fadeInUp affairs-card">
-                <img src="{%static 'images/property_.jpeg'%}">
-                <div class="wow fadeInUp affairs-content" data-wow-delay="0.2s">
-                    <a href="#">Tamarind Suites</a>
-                    <p>{{ "Bandar Bukit Raja Sales Gallery, Jalan Gamelan 1E, Bandar Bukit Raja, Klang, Selangor"|slice:":48" }}{% if "Bandar Bukit Raja Sales Gallery, Jalan Gamelan 1E, Bandar Bukit Raja, Klang, Selangor"|length > 50 %}...{% endif %}</p>
-                    <p>RM {{ 700000 |intcomma }}</p>
-                    <div class="bedroom-div wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="d-flex" style="align-items: baseline;">
-                            <i class="custom-fa fa fa-bed mt-2" aria-hidden="true"></i>
-                            <p>&nbsp; 3</p>
-                        </div>
-                        <a class="wow fadeInUp a-custom-buttom mt-2" href="#" data-wow-delay="0.4s" style="padding: unset; width: 10rem;">
-                            <span style="font-size: 1.4rem;">View details</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         {% comment %}
         <div class="affairs-pagination double-box mt-5" style="height: unset;">

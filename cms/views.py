@@ -1,8 +1,9 @@
-from django.views.generic import TemplateView, DetailView, FormView
-from cms.models import PropertyListModel, VISIBILITY, PeopleModel
-from cms.form import ContactForm
-from django.core.mail import send_mail
 from django.conf import settings
+from django.core.mail import send_mail
+from django.views.generic import DetailView, FormView, ListView, TemplateView
+
+from cms.form import ContactForm
+from cms.models import VISIBILITY, PeopleModel, PropertyListModel
 
 
 class HomePageView(TemplateView):
@@ -19,7 +20,8 @@ class HomePageView(TemplateView):
         return context
 
 
-class PropertyListPageListView(TemplateView):
+class PropertyListPageListView(ListView):
+    model = PropertyListModel
     template_name = "properties.html"
 
 
@@ -47,7 +49,7 @@ class ContactUsView(FormView):
             "type_of_enquiry": form.cleaned_data.get("type_of_enquiry"),
             "enquirer_message": form.cleaned_data.get("message"),
         }
-        
+
         subject = f"Enquiry from {data['name']}"
         content = f"""
         Name: {data['name']}\n
@@ -57,7 +59,6 @@ class ContactUsView(FormView):
         Message: {data['enquirer_message']}\n
         """
 
-        
         send_mail(
             subject=subject,
             message=content,
@@ -67,7 +68,6 @@ class ContactUsView(FormView):
         )
 
         return super().form_valid(form)
-
 
 
 class ComingSoonView(TemplateView):
