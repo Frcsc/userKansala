@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.core.mail import send_mail
 from django.views.generic import DetailView, FormView, ListView, TemplateView
+from django.db.models import Q
 
 from cms.form import ContactForm
 from cms.models import VISIBILITY, PeopleModel, PropertyListModel
@@ -23,6 +24,22 @@ class HomePageView(TemplateView):
 class PropertyListPageListView(ListView):
     model = PropertyListModel
     template_name = "properties.html"
+
+    def get_queryset(self, *args, **kwargs):
+        type_of_property = self.request.GET.get('type_of_property', '')
+        type_of_offer = self.request.GET.get('type_of_offer', '')
+            
+        if not self.request.GET:
+            return self.model.objects.all()
+        
+        else:
+            search = self.model.objects.filter(
+                Q(type_of_property=type_of_property) &
+                Q(type_of_offer=type_of_offer) 
+            )
+            return search
+
+
 
 
 class PropertyListPageDetailView(DetailView):

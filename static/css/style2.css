@@ -2403,7 +2403,7 @@ font-size: var(--font-size-s);
 .select2-container--default .select2-selection--single{
     border-radius: 100px!important;
     border: 2px solid #376A57!important;
-    background-color: var(--color-text-white)!important;
+    background-color: #ffffff!important;
 }
 .select2-results__option--selectable {
     font-size: var(--font-size-xxs);
@@ -4455,7 +4455,7 @@ overflow: hidden;
 .contact-input input, select{
     border: 2px solid #424242;
     color: #424242;
-    padding-left: 20px!important;
+    padding-left: 10px!important;
     width: 100%!important;
 }
 .contact-input textarea{
@@ -4981,4 +4981,23 @@ transform: translate(8px);
     border: 1px solid #1c242c;
     padding: 2%;
     border-radius: 5px;
+}
+
+
+.type-offer-p{
+    /* background-color: #ffffff; */
+    border: 1px solid #198781;
+    padding: 0.5%;
+    width: 20%;
+    border-radius: 5px;
+    font-size: 1rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.type-offer-p p{
+    color: #1c242c;
+    margin-top: unset !important;
 }

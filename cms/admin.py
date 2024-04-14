@@ -14,6 +14,7 @@ class PropertyListModelAdmin(admin.ModelAdmin):
         'name',
         'price',
         'type_of_property',
+        'type_of_offer',
         'floor_size',
         'number_of_bedrooms',
         'number_of_bathroom',

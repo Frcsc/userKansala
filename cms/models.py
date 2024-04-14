@@ -16,6 +16,10 @@ class PropertyType(models.TextChoices):
     HOUSE = ("House", "House")
 
 
+class TypeOfOffer(models.TextChoices):
+    BUY = ("Buy", "Buy")
+    RENT = ("Rent", "Rent")
+
 class PropertyListModel(models.Model):
     image = models.ImageField(upload_to="property-list/images/")
     name = models.CharField(max_length=128)
@@ -35,6 +39,9 @@ class PropertyListModel(models.Model):
         default=VISIBILITY.DO_NOT_SHOW_ON_HOME_PAGE,
     )
     number_of_bedrooms = models.CharField(max_length=64, null=True, blank=True)
+    type_of_offer = models.CharField(
+        max_length=512, choices=TypeOfOffer.choices, default=TypeOfOffer.RENT
+    )
     description = models.TextField(null=True, blank=True)
 
     def __str__(self):

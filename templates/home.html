@@ -58,6 +58,9 @@
                     {% endif %}
                     <div class="affairs-content wow fadeInUp" data-wow-delay="0.2s">
                         <a href="{% url 'properties-details' listing.pk %}">{{listing.name}}</a>
+                        <div class="type-offer-p">
+                            <p style="font-size: 1.4rem;">{{listing.type_of_offer}}</p>
+                        </div>
                         <p>{{listing.address | slice:48}} ...</p>
                         <p>RM {{ listing.price |intcomma }}</p>
                         <div class="bedroom-div wow fadeInUp" data-wow-delay="0.4s">

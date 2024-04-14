@@ -4,10 +4,22 @@
 {% block title %} Listings {% endblock title %}
 
 {% block body_content %}
+<style>
+    select:focus {
+    outline: none;
+}
+
+option{
+    /* border-radius: 100px!important;
+    border: 2px solid #376A57!important;
+    background-color: var(--color-text-white)!important; */
+    background-color: #fff !important;
+}
+</style>
 <div class="main-content">
     <div class="main-header page-banners">
         <div class="main-header-content">
-            <h1 class="wow fadeInUp">Properties For Sale</h1>
+            <h1 class="wow fadeInUp">Properties</h1>
         </div>
     </div>
 
@@ -15,12 +27,36 @@
         <div class="double-box title-head">
             <h1 class="wow fadeInUp" data-wow-delay="0.2s" >Current Listings</h1>
         </div>
-        <div class="row affairs-pagination double-box">
+
+        <div class="whatwedo-click-main newsroom-click-main" style="margin-bottom: unset;">
+            <form class="w-100" method="GET" id="filterForm">
+                <div class="filter-container">
+                    <select class="js-example-basic-single filter-box" name="type_of_property" value='{{ request.GET.type_of_property }}' style="border-radius: 100px; color: #212529;  border: 2px solid #198781; font-size: 1.5rem;">
+                        <option value="">Filter by Type</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Shop">Shop</option>
+                        <option value="HOUSE">Landed House</option>
+                        <option value="Office_Space">Office Space</option>
+                    </select>
+                    <select class="js-example-basic-single filter-box" name="type_of_offer" value='{{ request.GET.type_of_offer }}' style="border-radius: 100px; color: #212529; border: 2px solid #198781; font-size: 1.5rem;">
+                        <option value="">Filter by Offer Type</option>
+                            <option value="Buy">Buy</option>
+                            <option value="Rent">Rent</option>
+                    </select>
+                    <button class="filter-btn" type='submit' style="font-size: 1.5rem;">Apply</button>
+                </div>
+            </form>
+        </div>
+ 
+        <div class="row affairs-pagination double-box" style="margin-top: unset;">
             {% for object in object_list %}
             <div class="col-12 col-md-6 col-xl-3 wow fadeInUp affairs-card">
                 <img src="{{object.image.url}}">
                 <div class="affairs-content wow fadeInUp" data-wow-delay="0.2s">
-                    <a href="{%url 'properties-details' object.pk %}">Cuberia Condominium</a>
+                    <a href="{%url 'properties-details' object.pk %}">{{object.name}}</a>
+                    <div class="type-offer-p">
+                        <p style="font-size: 1.4rem;">{{object.type_of_offer}}</p>
+                    </div>
                     <p>{{object.address|slice:48}}...</p>
                     <p>RM {{ object.price |intcomma }}</p>
                     <div class="bedroom-div wow fadeInUp" data-wow-delay="0.4s">
@@ -34,6 +70,11 @@
                     </div>
                 </div>
             </div>
+            {% empty %}
+                <div class="not-found">
+                    <h1>No Records Found</h1>
+                </div>
+
             {% endfor %}
         </div>
         {% comment %}
@@ -46,4 +87,5 @@
         {% endcomment %}
     </div>
 </div>
+</script>
 {% endblock body_content %}
