@@ -1,0 +1,102 @@
+{% load static %}
+<div class="footer-container">
+  <footer>
+    <section class="footer-content container">
+      <div class="footer-main">
+         <div class="footer-links-container px-5 ms-lg-5" style="margin-left: unset !important;">
+            <div class="row row-cols-lg-3 row-cols-2 gy-5 text-start">
+               <div class="col">
+                  <h1>About Us</h1>
+                  <ul class="footer-links">
+                     <li class="py-md-2">
+                        <a href="{% url 'coming-soon' %}">Our Story</a>
+                     </li>
+                  </ul>
+               </div>
+
+               <div class="col">
+               <h1>Services</h1>
+               <ul class="footer-links">
+                  <li class="py-md-2">
+                     <a href="{% url 'coming-soon' %}">Buy/Rent A Property</a>
+                  </li>
+                  <li class="py-md-2">
+                     <a href="{% url 'sell' %}">Offer A Property</a>
+                  </li>
+               </ul>
+               </div>
+               <div class="col">
+               <h1>Membership</h1>
+               <ul class="footer-links">
+                  <li class="py-md-2">
+                     <a href="{% url 'coming-soon' %}">Our Agents</a>
+                  </li>
+                  <li class="py-md-2">
+                     <a href="{% url 'coming-soon' %}">Become An Agent</a>
+                  </li>
+               </ul>
+               </div>
+               <div class="col">
+               <h1>Connect</h1>
+               <ul class="footer-links">
+                  <li class="py-md-2">
+                     <a href="{% url 'contact' %}">Contact Us</a>
+                  </li>
+                  <li class="py-md-2">
+                     <a href="{% url 'coming-soon' %}">Join Us</a>
+                  </li>
+               </ul>
+               </div>
+            </div>
+         </div>
+         <div class="px-5 mb-5 me-md-5 footer-col pt-5 pb-5">
+            <h1>Stay in the know</h1>
+            <p>
+               Sign up to hear more about what we're thinking and where you can find us.
+            </p>
+            <div action="#" class="mb-3 mb-3 ">
+              <a class="a-custom-buttom mt-4" href="#" style="padding: 12px;">
+               <span>Sign Up&nbsp;&nbsp;&nbsp;</span>
+               <div><img src="{% static 'images/search-arrow.svg' %}"></div>
+            </a>
+         </div>
+            <div class="footer-icons">
+               <a href="https://www.facebook.com ">
+                  <div>
+                     <i class="fa-brands fa-facebook-f"></i>
+                  </div>
+               </a>
+               <a href="https://twitter.com/">
+                  <div class="">
+                     <i class="fa-brands fa-twitter"></i>
+                  </div>
+               </a>
+               <a href="https://www.youtube.com/">
+                  <div class="">
+                     <i class="fa-brands fa-youtube"></i>
+                  </div>
+               </a>
+               <a href="https://www.instagram.com/">
+                  <div class="">
+                     <i class="fa-brands fa-instagram"></i>
+                  </div>
+               </a>
+            </div>
+          </div>
+      </div>
+    </section>
+    <div class="d-flex align-items-center footer-copyright text-start py-3">
+      <div class="container">
+        <div class="d-sm-flex flex-sm-row d-block mb-sm-0 mb-2 text-white footer-copyright-content px-5 align-items-center">
+          <p class="m-0">© 2024. Bayati Royal Agency All Rights Reserved</p>
+          <span class="d-sm-inline-block d-none">|</span>
+          <div class="d-flex align-items-center">
+            <p class="m-0"><a href="#">Terms Of Usage</a></p>
+            <span class="mx-3">|</span>
+            <p class="m-0"><a href="#">Privacy Policy</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

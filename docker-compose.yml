@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    container_name: postgres-white-paper
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: ${DB_HOST:-code}
+      POSTGRES_USER: ${DB_USER:-code}
+      POSTGRES_PASSWORD: ${DB_PASS:-code}
+
+  django:
+    container_name: backend
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: "db"
+      DB_PASS: ${DB_PASS:-code}
+    stdin_open: true
+    tty: true

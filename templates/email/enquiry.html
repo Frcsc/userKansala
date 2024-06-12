@@ -1,0 +1,137 @@
+{% load static  %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Enquiry</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #EAEAEA;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .section-2 {
+            background-color: white;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 24px;
+            width: 80%;
+            margin: 0 auto;
+            border-radius: 16px;
+        }
+
+        .divider {
+            border-bottom: 1px solid gray;
+            margin: 20px 0;
+        }
+
+        .big-title {
+            text-align: center;
+            font-weight: 300;
+            font-size: 48px;
+            margin: 10px;
+            padding-bottom: 1%;
+            line-height: 50px;
+            color: #1F1F1F;
+        }
+
+        .paragraphs {
+            text-align: justify;
+            padding: 0 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #686868;
+            margin: 0 auto;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .social-icons i {
+            margin: 0 5px;
+            font-size: 20px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .blue-button {
+            display: inline-block;
+            background-color: blue;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .blue-button:hover {
+            background-color: darkblue;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="section-2">
+            <div class="paragraphs">
+                <p>Dear {{name}},</p>
+                <p>Thank you for expressing your interest in one of our agency services:</p>
+                <p>Details of Enquiry:</p>
+                <div>
+                  <p>&nbsp;&nbsp;Name of enquirer: {{name}}</p>
+                  <p>&nbsp;&nbsp;Mobile number of enquirer: {{mobile_number}}</p>
+                  <p>&nbsp;&nbsp;Type of enquiry: {{type_of_enquiry}}</p>
+                  <p>&nbsp;&nbsp;Message: {{enquirer_message}}</p>
+                  <p>Regards,</p>
+                  <p>Bayati Royal Agency</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 Bayati Royal Agency. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>

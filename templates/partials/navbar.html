@@ -1,0 +1,255 @@
+{% load static %}
+
+<nav>
+  <div class="navbar">
+    <div class="logo-div">
+      <a href="{% url 'homepage' %}">
+		<img
+          class="logo"
+          src="{% static 'images/logo.png' %}"
+          alt="Logo"
+      />
+	  </a>
+    </div>
+    <div class="navbar-box">
+      <div class="nav-links">
+        <ul class="links">
+          <li>
+            <a href="{% url 'coming-soon' %}">About Us</a>
+            <i class="bx bx-chevron-down arrow hover1"></i>
+            <ul class="about-submenu sub-menu2">
+              <a href="{% url 'coming-soon' %}"><li>Our Story</li></a>
+            </ul>
+          </li>
+          <li>
+            <a href="{% url 'properties' %}">Services</a>
+            <i class="bx bx-chevron-down arrow hover2"></i>
+            <ul class="work-submenu sub-menu2">
+              <a href="{% url 'properties' %}"><li>Buy/Rent A Property</li></a>
+              <a href="{% url 'sell' %}"><li>Offer A Property</li></a>
+            </ul>
+          </li>
+          <li>
+            <a href="{% url 'coming-soon' %}">Events</a>
+            <i class="bx bx-chevron-down arrow hover6"></i>
+            <ul class="work-submenu sub-menu2">
+              <a href="{% url 'coming-soon' %}"><li>Training</li></a>
+              <a href="{% url 'coming-soon' %}"><li>Recruitment</li></a>
+            </ul>
+          </li>
+          <li>
+            <a href="{% url 'coming-soon' %}">Membership</a>
+            <i class="bx bx-chevron-down arrow hover3"></i>
+            <ul class="work-submenu sub-menu2">
+              <a href="{% url 'coming-soon' %}"><li>Our Agents</li></a>
+              <a href="{% url 'coming-soon' %}"><li>Become An Agent</li></a>
+            </ul>
+          </li>
+          <li>
+            <a href="{% url 'contact' %}">Connect</a>
+            <i class="bx bx-chevron-down arrow hover6"></i>
+            <ul class="work-submenu sub-menu2">
+              <a href="{% url 'contact' %}"><li>Contact Us</li></a>
+              <a href="{% url 'coming-soon' %}"><li>Join Us</li></a>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <form class="search-mobile" action="#" method="GET">
+        <input
+          type="text"
+          placeholder="Search"
+          name="q"
+          value="{{request.GET.search_results}}"
+        />
+      </form>
+      <div class="search-btn">
+        <i class="bx bx-search-alt-2 bx-mobile"></i>
+      </div>
+
+      {% comment %}
+      <a href="#">
+        <button class="donate-btn">
+        <img src="{% static 'images/navbar-arrow.svg' %}" alt="" />
+         <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </button>
+      </a>
+      {% endcomment %}
+      <div class="menu">
+        <i class="bx bx-menu"></i>
+      </div>
+    </div>
+  </div>
+  <div class="menu-open">
+    <div class="container">
+      <div class="menu-grid">
+        <div class="container-fluid px-5">
+          <div class="row row-cols-md-4 row-cols-sm-3 row-cols-2 g-5 ">
+			<div class="col menu-box align-items-start">
+				<h1>About Us</h1>
+				<a href="{% url 'coming-soon' %}">Our Story</a>
+			  </div>
+            <div class="col menu-box align-items-start">
+              <h1>Services</h1>
+              <a href="{% url 'properties' %}">Buy/Rent A Property </a>
+			        <a href="{% url 'sell' %}">Offer A Property </a>
+            </div>
+            <div class="col menu-box align-items-start">
+              <h1>Agency</h1>
+              <a href="{% url 'coming-soon' %}">Our Agents</a>
+              <a href="{% url 'coming-soon' %}">Become An Agent</a>
+            </div>
+            <div class="col menu-box align-items-start">
+              <h1>Connect</h1>
+              <a href="{% url 'contact' %}">Contact Us</a>
+              <a href="{% url 'coming-soon' %}">Join Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const navbar = document.querySelector(".navbar");
+  const searchBtn = document.querySelector(".search-btn .bx-mobile ");
+  const search = document.querySelector(".search-mobile");
+  const searchInput = document.querySelector(".search-mobile input");
+  const logo = document.querySelector(".navbar .logo");
+  const navLink = document.querySelector(".nav-links");
+  const donate = document.querySelector(".donate-btn");
+  const searchGap = document.querySelector(".navbar-box");
+
+  searchBtn.addEventListener("click", () => {
+    navbar.classList.toggle("showInput");
+    if (navbar.classList.contains("showInput")) {
+      searchBtn.classList.replace("bx-mobile", "bx-x");
+      search.style.display = "flex";
+      searchInput.style.display = "flex";
+      logo.style.display = "none";
+      navLink.style.display = "none";
+      donate.style.display = "none";
+      searchGap.style.gap = "15px";
+    } else {
+      searchBtn.classList.replace("bx-x", "bx-mobile");
+      search.style.display = "none";
+      searchInput.style.display = "none";
+      logo.style.display = "block";
+      navLink.style.display = "flex";
+      donate.style.display = "flex";
+      searchGap.style.gap = "";
+    }
+  });
+
+  const menu = document.querySelector(".menu .bx-menu");
+  const menuOpen = document.querySelector(".menu-open");
+  const nav = document.querySelector("nav");
+  const menuBox = document.querySelector(".menu-grid");
+  const main = document.querySelector(".main-content");
+  const list = document.querySelectorAll("nav .navbar .nav-links .links li a ");
+  const body = document.querySelector("body");
+
+  menu.addEventListener("click", () => {
+    navbar.classList.toggle("showInput2");
+
+    if (navbar.classList.contains("showInput2")) {
+      menu.classList.replace("bx-menu", "bx-x");
+      menuOpen.style.display = "block";
+      nav.style.height = "100vh";
+      nav.style.background = "black";
+      menuBox.style.display = "block";
+      search.style.display = "none";
+      searchBtn.style.display = "none";
+
+      menu.style.color = "white";
+      nav.style.overflow = "scroll";
+      body.style.overflow = "hidden";
+    } else {
+      menu.classList.replace("bx-x", "bx-menu");
+      menuOpen.style.display = "none";
+      nav.style.height = "auto";
+      menuBox.style.display = "none";
+      nav.style.background = "initial";
+      search.style.display = "none";
+      searchBtn.style.display = "flex";
+      menu.style.color = "";
+      nav.style.overflow = "unset";
+      body.style.overflow = "auto";
+    }
+  });
+</script>
+<script>
+  var verticalDistance = 0;
+  var offset = 200;
+
+  const header = document.querySelector("nav");
+
+  var prev = window.pageYOffset;
+
+  window.addEventListener("scroll", function () {
+    var current = window.pageYOffset;
+
+    if (prev < current) {
+      if (current > verticalDistance + offset) {
+        header.style.display = "none";
+      }
+    } else {
+      header.style.display = "initial";
+
+      verticalDistance = window.pageYOffset;
+    }
+
+    prev = current;
+  });
+</script>
+
+<script>
+  const links = document.querySelectorAll(
+    "nav .navbar .nav-links .links li a "
+  );
+
+  links.forEach(function (colors) {
+    const menuIcon = document.querySelector(".menu i");
+    const header = document.querySelector("nav");
+
+    if (location.pathname == "/register-membership/") {
+      header.classList.add("nav-memberpage");
+    }
+
+    if (location.pathname == "/register-organisation/") {
+      header.classList.add("nav-memberpage");
+    }
+
+    if (location.pathname == "/vacancy/") {
+      header.classList.add("nav-memberpage");
+    }
+
+    for (let i = 1; i < 1000; i++) {
+      if (location.pathname == `/vacancy-details/${i}/`) {
+        header.classList.add("nav-memberpage");
+      }
+    }
+
+    if (location.pathname == "/contact-us/") {
+      header.classList.add("nav-memberpage");
+    }
+
+    if (location.pathname == "/donate/") {
+      header.classList.add("nav-memberpage");
+    }
+    if (location.pathname == "/searchpage/") {
+      header.classList.add("nav-memberpage");
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener("scroll", function () {
+    const header = document.querySelector("nav");
+    const windowPosition = window.scrollY > 200;
+    const donateIcone = document.querySelector(".donate-btn i");
+
+    header.classList.toggle("nav-scrolled", windowPosition);
+  });
+</script>
